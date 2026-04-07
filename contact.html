@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Get in touch with GameVault support. We help with orders, keys, and technical issues."
+    />
+    <title>Contact Us — GameVault</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/contact.css" />
+  </head>
+  <body>
+    <!-- NAV will go here -->
+    <nav class="navbar">
+      <div class="container navbar__inner">
+        <!-- Logo -->
+        <a href="index.html" class="navbar__logo">
+          <svg
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M21 6H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1ZM11 13H9v2H7v-2H5v-2h2V9h2v2h2v2Zm4-1a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm3 2a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+            />
+          </svg>
+          GAME<span style="color: var(--magenta)">VAULT</span>
+        </a>
+
+        <!-- Links -->
+        <ul class="navbar__links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html " class="active">Contact</a></li>
+        </ul>
+
+        <!-- Actions -->
+        <div class="navbar__actions">
+          <button class="navbar__cart" aria-label="Shopping cart">
+            🛒 <span>Cart</span>
+            <span class="navbar__cart-count">3</span>
+          </button>
+          <button
+            class="navbar__toggle"
+            id="navToggle"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="page-header">
+        <p class="page-header__eyebrow">// We are here for you</p>
+        <h1 class="page-header__title">Get in <span>Touch</span></h1>
+      </div>
+
+      <section class="contact-section">
+        <div class="contact-grid">
+          <!-- Left: info -->
+          <div class="contact-info">
+            <p class="contact-intro">
+              Whether you have a question about an order, need help with a game
+              key, or just want to say hello — our team is ready. We typically
+              respond within 24 hours on business days.
+            </p>
+
+            <div class="contact-items">
+              <div class="contact-item">
+                <div class="contact-item__icon">✉</div>
+                <div>
+                  <p class="contact-item__label">Email</p>
+                  <p class="contact-item__value">support@gamevault.example</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-item__icon">💬</div>
+                <div>
+                  <p class="contact-item__label">Live Chat</p>
+                  <p class="contact-item__value">
+                    Available Mon–Fri, 9 AM–6 PM UTC
+                  </p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-item__icon">📍</div>
+                <div>
+                  <p class="contact-item__label">Headquarters</p>
+                  <p class="contact-item__value">
+                    New Arcadia Digital HQ (Remote-first)
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <p class="contact-social-title">Follow Us</p>
+            <div class="contact-social-links">
+              <a href="#" class="social-link" aria-label="Twitter/X">𝕏</a>
+              <a href="#" class="social-link" aria-label="Discord">🎮</a>
+              <a href="#" class="social-link" aria-label="YouTube">▶</a>
+              <a href="#" class="social-link" aria-label="Twitch">📺</a>
+              <a href="#" class="social-link" aria-label="Instagram">📷</a>
+            </div>
+          </div>
+
+          <!-- Right: form -->
+          <div class="contact-form-wrap">
+            <h2 class="contact-form-title">Send a Message</h2>
+            <p class="contact-form-subtitle">// Fields marked * are required</p>
+
+            <form class="contact-form" id="contactForm" novalidate>
+              <div class="form-feedback" role="alert" aria-live="polite"></div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="contact-name"
+                    >Full Name *</label
+                  >
+                  <input
+                    class="form-control"
+                    type="text"
+                    id="contact-name"
+                    name="name"
+                    placeholder="Your name"
+                    autocomplete="name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contact-email"
+                    >Email Address *</label
+                  >
+                  <input
+                    class="form-control"
+                    type="email"
+                    id="contact-email"
+                    name="email"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-order"
+                  >Order ID
+                  <span style="color: var(--muted)">(optional)</span></label
+                >
+                <input
+                  class="form-control"
+                  type="text"
+                  id="contact-order"
+                  name="order_id"
+                  placeholder="e.g. GV-2025-00492"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-topic">Topic *</label>
+                <select
+                  class="form-control"
+                  id="contact-topic"
+                  name="topic"
+                  required
+                >
+                  <option value="" disabled selected>Select a topic…</option>
+                  <option value="order">Order &amp; Payment</option>
+                  <option value="key">Game Key Issue</option>
+                  <option value="technical">Technical Issue</option>
+                  <option value="refund">Refund Request</option>
+                  <option value="account">Account Problem</option>
+                  <option value="partnership">Partnership / Press</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-message"
+                  >Message *</label
+                >
+                <textarea
+                  class="form-control"
+                  id="contact-message"
+                  name="message"
+                  placeholder="Describe your issue or question in as much detail as possible…"
+                  maxlength="1000"
+                  required
+                ></textarea>
+                <span class="char-counter">0 / 1000</span>
+              </div>
+
+              <div class="filter-item" style="padding: 0.2rem 0">
+                <input
+                  type="checkbox"
+                  id="newsletter"
+                  name="newsletter"
+                  value="1"
+                />
+                <label
+                  for="newsletter"
+                  style="font-size: 0.85rem; color: var(--muted)"
+                >
+                  Subscribe to GameVault news and exclusive deals
+                </label>
+              </div>
+
+              <div class="form-submit">
+                <button type="submit" class="btn btn-solid">
+                  <span>⚡ Send Message</span>
+                </button>
+                <p class="form-note">
+                  We never share your data. See our&nbsp;<a
+                    href="#"
+                    style="color: var(--cyan)"
+                    >Privacy Policy</a
+                  >.
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="faq-section">
+        <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+        <div class="section-line"></div>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <div
+              class="faq-question"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              How do I receive my game after purchase?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="faq-answer">
+              Your game key and download link are delivered instantly to your
+              registered email address and appear in your GameVault account
+              library.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div
+              class="faq-question"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              What is your refund policy?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="faq-answer">
+              We offer a 14-day refund window for unactivated keys. Activated
+              keys are non-refundable, but we handle disputes case-by-case —
+              just reach out to support.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div
+              class="faq-question"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              Are the game keys region-locked?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="faq-answer">
+              Each product page clearly states whether a key is global or
+              region-specific. Most of our catalogue is globally compatible.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div
+              class="faq-question"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              How do I report a technical issue?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="faq-answer">
+              Use the contact form on this page, select "Technical Issue" as the
+              topic, and provide as much detail as possible. Our team typically
+              responds within 24 hours.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div
+              class="faq-question"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              Can I gift games to a friend?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="faq-answer">
+              Yes! During checkout select "Buy as Gift" and enter your friend's
+              email address.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div
+              class="faq-question"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              Do you offer student or bundle discounts?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="faq-answer">
+              We run regular bundle promotions on the Shop page. For student
+              discounts, contact support with valid student ID documentation.
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- FOOTER will go here -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__grid">
+          <!-- Brand -->
+          <div class="footer__brand">
+            <div class="navbar__logo" style="margin-bottom: 0.6rem">
+              <svg
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                style="
+                  width: 22px;
+                  height: 22px;
+                  fill: var(--cyan);
+                  filter: drop-shadow(0 0 5px var(--cyan));
+                "
+              >
+                <path
+                  d="M21 6H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1ZM11 13H9v2H7v-2H5v-2h2V9h2v2h2v2Zm4-1a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm3 2a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+                />
+              </svg>
+              GAME<span style="color: var(--magenta)">VAULT</span>
+            </div>
+            <p class="footer__brand-desc">
+              Your ultimate digital game store. Thousands of titles, instant
+              delivery, and the best deals in the galaxy — all in one place.
+            </p>
+          </div>
+
+          <!-- Store links -->
+          <div>
+            <p class="footer__col-title">Store</p>
+            <nav class="footer__col-links">
+              <a href="shop.php">All Games</a>
+              <a href="shop.php?genre=action">Action</a>
+              <a href="shop.php?genre=rpg">RPG</a>
+              <a href="shop.php?sort=discount">On Sale</a>
+              <a href="shop.php?sort=new">New Releases</a>
+            </nav>
+          </div>
+
+          <!-- Support links -->
+          <div>
+            <p class="footer__col-title">Support</p>
+            <nav class="footer__col-links">
+              <a href="contact.php">Contact Us</a>
+              <a href="#">Help Center</a>
+              <a href="#">Refund Policy</a>
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+            </nav>
+          </div>
+
+          <!-- Company links -->
+          <div>
+            <p class="footer__col-title">Company</p>
+            <nav class="footer__col-links">
+              <a href="#">About Us</a>
+              <a href="#">Careers</a>
+              <a href="#">Press Kit</a>
+              <a href="#">Partners</a>
+              <a href="#">Blog</a>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="footer__bottom">
+          <span>&copy; 2026 GameVault. All rights reserved.</span>
+          <div class="footer__social">
+            <a href="https://twitter.com" aria-label="Twitter/X">𝕏</a>
+            <a href="https://discord.com" aria-label="Discord">🎮</a>
+            <a href="https://youtube.com" aria-label="YouTube">▶</a>
+            <a href="https://twitch.tv" aria-label="Twitch">📺</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
+</html>
