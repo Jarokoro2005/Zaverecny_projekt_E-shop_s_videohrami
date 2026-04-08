@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "index": {
+      "title": "GameVault — Domov",
+      "description": "GameVault — Thousands of digital games at the best prices. Instant delivery."
+    },
+    "shop": {
+      "title": "GameVault — Obchod",
+      "description": "Browse thousands of games at GameVault. Filter by genre, price, and more."
+    },
+    "contact": {
+      "title": "GameVault — Kontakt",
+      "description": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGet in touch with GameVault support. We help with orders, keys, and technical issues."
+    }
+  },
+  "sites": {
+    "index": ["css/global.css", "css/home.css"],
+    "contact": ["css/global.css", "css/contact.css"],
+    "shop": ["css/global.css", "css/shop.css"]
+  }
+}
