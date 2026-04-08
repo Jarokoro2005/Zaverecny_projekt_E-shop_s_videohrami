@@ -1,16 +1,9 @@
-<!doctype html>
-<html lang="en">
+<?php
+include_once("functions.php");
+?>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Browse thousands of games at GameVault. Filter by genre, price, and more." />
-  <title>Shop — GameVault</title>
-  <link rel="stylesheet" href="css/global.css" />
-  <link rel="stylesheet" href="css/shop.css" />
-</head>
+<?php require("parts/header.php"); ?>
 
-<body>
   <!-- NAV (paste later) -->
   <nav class="navbar">
     <div class="container navbar__inner">
@@ -25,9 +18,9 @@
 
       <!-- Links -->
       <ul class="navbar__links" id="navLinks">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html" class="active">Shop</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.php" >Home</a></li>
+        <li><a href="shop.php" class="active">Shop</a></li>
+        <li><a href="contact.php">Contact</a></li>
       </ul>
 
       <!-- Actions -->
