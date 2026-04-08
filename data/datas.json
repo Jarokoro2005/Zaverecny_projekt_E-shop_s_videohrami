@@ -17,5 +17,19 @@
     "index": ["css/global.css", "css/home.css"],
     "contact": ["css/global.css", "css/contact.css"],
     "shop": ["css/global.css", "css/shop.css"]
+  },
+  "menu": {
+    "index": {
+      "name": "Home",
+      "path": "index.php"
+    },
+    "shop": {
+      "name": "Shop",
+      "path": "shop.php"
+    },
+    "contact": {
+      "name": "Contact",
+      "path": "contact.php"
+    }
   }
 }

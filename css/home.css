@@ -83,7 +83,6 @@
   position: relative;
   z-index: 2;
   max-width: 680px;
-  margin: 0 auto;
 }
 .hero__eyebrow {
   font-family: var(--font-mono);

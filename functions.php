@@ -40,4 +40,31 @@ function getCSS(): void
     }
     echo "<!-- stranka: $stranka -->";
 }
+function getActiveClass(): string
+{
+
+    $stranka = basename($_SERVER['REQUEST_URI']);
+    $stranka = explode(".", $stranka)[0];
+
+    return $stranka;
+}
+
+function getMenu(): array
+{
+    $jsonStr = file_get_contents("data/datas.json");
+    $data = json_decode($jsonStr, true);
+
+    return $data["menu"] ?? [];
+}
+
+
+function printMenu(array $menu, string $currentPage): void
+{
+    foreach ($menu as $key => $item) {
+        $active = ($currentPage === $key) ? "class='active'" : "";
+        echo "<li><a href='{$item['path']}' {$active}>{$item['name']}</a></li>";
+    }
+}
+
+
 ?>
