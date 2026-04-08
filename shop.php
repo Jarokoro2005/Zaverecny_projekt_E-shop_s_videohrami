@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Browse thousands of games at GameVault. Filter by genre, price, and more." />
+  <title>Shop — GameVault</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/shop.css" />
+</head>
+
+<body>
+  <!-- NAV (paste later) -->
+  <nav class="navbar">
+    <div class="container navbar__inner">
+      <!-- Logo -->
+      <a href="index.html" class="navbar__logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path
+            d="M21 6H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1ZM11 13H9v2H7v-2H5v-2h2V9h2v2h2v2Zm4-1a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm3 2a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" />
+        </svg>
+        GAME<span style="color: var(--magenta)">VAULT</span>
+      </a>
+
+      <!-- Links -->
+      <ul class="navbar__links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html" class="active">Shop</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <!-- Actions -->
+      <div class="navbar__actions">
+        <button class="navbar__cart" aria-label="Shopping cart">
+          🛒 <span>Cart</span>
+          <span class="navbar__cart-count">3</span>
+        </button>
+        <button class="navbar__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <!-- Page header -->
+    <div class="page-header">
+      <p class="page-header__eyebrow">// Browse the collection</p>
+      <h1 class="page-header__title">The <span>Store</span></h1>
+    </div>
+
+    <div class="shop-layout">
+      <!-- SIDEBAR -->
+      <aside class="sidebar" aria-label="Filters">
+        <div class="sidebar__filters-toggle">
+          <span>⚙ Filters</span>
+          <span class="ft-arrow">▼</span>
+        </div>
+        <div class="sidebar__body">
+          <!-- Genre -->
+          <div class="sidebar__section">
+            <h2 class="sidebar__title">Genre</h2>
+            <div class="filter-list">
+              <div class="filter-item">
+                <input type="checkbox" id="genre-action-rpg" /><label for="genre-action-rpg">Action RPG <span
+                    class="filter-count">142</span></label>
+              </div>
+              <div class="filter-item">
+                <input type="checkbox" id="genre-fps" /><label for="genre-fps">FPS <span
+                    class="filter-count">87</span></label>
+              </div>
+              <div class="filter-item">
+                <input type="checkbox" id="genre-rpg" /><label for="genre-rpg">RPG <span
+                    class="filter-count">203</span></label>
+              </div>
+              <div class="filter-item">
+                <input type="checkbox" id="genre-space" /><label for="genre-space">Space Sim <span
+                    class="filter-count">34</span></label>
+              </div>
+              <div class="filter-item">
+                <input type="checkbox" id="genre-scifi" /><label for="genre-scifi">Sci-Fi <span
+                    class="filter-count">118</span></label>
+              </div>
+              <div class="filter-item">
+                <input type="checkbox" id="genre-roguelike" /><label for="genre-roguelike">Roguelike <span
+                    class="filter-count">66</span></label>
+              </div>
+              <div class="filter-item">
+                <input type="checkbox" id="genre-puzzle" /><label for="genre-puzzle">Puzzle <span
+                    class="filter-count">91</span></label>
+              </div>
+              <div class="filter-item">
+                <input type="checkbox" id="genre-racing" /><label for="genre-racing">Racing <span
+                    class="filter-count">45</span></label>
+              </div>
+              <div class="filter-item">
+                <input type="checkbox" id="genre-strategy" /><label for="genre-strategy">Strategy <span
+                    class="filter-count">77</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Price -->
+          <div class="sidebar__section">
+            <h2 class="sidebar__title">Max Price</h2>
+            <div class="price-range">
+              <input type="range" class="price-slider" min="0" max="100" value="60" style="--val: 60%" />
+              <div class="price-labels">
+                <span>$0</span><span class="price-max">$60</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Offers -->
+          <div class="sidebar__section">
+            <h2 class="sidebar__title">Offers</h2>
+            <div class="filter-list">
+              <div class="filter-item">
+                <input type="checkbox" id="offer-sale" /><label for="offer-sale">On Sale <span
+                    class="filter-count">312</span></label>
+              </div>
+              <div class="filter-item">
+                <input type="checkbox" id="offer-new" /><label for="offer-new">New Releases <span
+                    class="filter-count">58</span></label>
+              </div>
+              <div class="filter-item">
+                <input type="checkbox" id="offer-top" /><label for="offer-top">Top Rated <span
+                    class="filter-count">189</span></label>
+              </div>
+              <div class="filter-item">
+                <input type="checkbox" id="offer-indie" /><label for="offer-indie">Indie <span
+                    class="filter-count">441</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rating -->
+          <div class="sidebar__section">
+            <h2 class="sidebar__title">Min Rating</h2>
+            <div class="filter-list">
+              <div class="filter-item">
+                <input type="radio" id="rating-5" name="rating" /><label for="rating-5">★★★★★ &amp; up</label>
+              </div>
+              <div class="filter-item">
+                <input type="radio" id="rating-4" name="rating" /><label for="rating-4">★★★★☆ &amp; up</label>
+              </div>
+              <div class="filter-item">
+                <input type="radio" id="rating-3" name="rating" /><label for="rating-3">★★★☆☆ &amp; up</label>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-magenta" style="width: 100%; justify-content: center">
+            <span>Apply Filters</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- MAIN AREA -->
+      <main>
+        <!-- Toolbar -->
+        <div class="shop-toolbar">
+          <p class="shop-toolbar__count">Showing <span>9</span> games</p>
+          <div class="shop-toolbar__right">
+            <div class="shop-search">
+              <span class="shop-search__icon">🔍</span>
+              <input type="search" class="shop-search__input" placeholder="Search games…" aria-label="Search games" />
+            </div>
+            <select class="sort-select">
+              <option selected>Most Popular</option>
+              <option>Newest</option>
+              <option>Biggest Discount</option>
+              <option>Price: Low → High</option>
+              <option>Price: High → Low</option>
+              <option>Top Rated</option>
+            </select>
+            <div class="view-toggle">
+              <button class="view-btn active" data-view="grid">⊞</button>
+              <button class="view-btn" data-view="list">☰</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- GAMES GRID -->
+        <div class="games-grid" id="gamesGrid">
+          <!-- Game 1 -->
+          <a href="game.html" class="shop-card">
+            <div class="shop-card__thumb" style="
+                  background: linear-gradient(
+                    135deg,
+                    rgba(255, 45, 120, 0.18),
+                    rgba(9, 11, 16, 1)
+                  );
+                ">
+              NEON BLADE: ORIGINS
+              <span class="shop-card__discount">-40%</span>
+            </div>
+            <div class="shop-card__body">
+              <p class="shop-card__genre">Action RPG</p>
+              <h3 class="shop-card__title">Neon Blade: Origins</h3>
+              <div class="shop-card__tags">
+                <span class="badge badge-cyan">NEW</span><span class="badge badge-cyan">HOT</span>
+              </div>
+              <div class="shop-card__footer">
+                <div class="shop-card__price">
+                  <span class="original">$49.99</span>$29.99
+                </div>
+                <button class="shop-card__add">🛒</button>
+              </div>
+            </div>
+          </a>
+
+          <!-- Game 2 -->
+          <a href="game.html" class="shop-card">
+            <div class="shop-card__thumb" style="
+                  background: linear-gradient(
+                    135deg,
+                    rgba(0, 180, 255, 0.18),
+                    rgba(9, 11, 16, 1)
+                  );
+                ">
+              STELLAR ODYSSEY 2
+            </div>
+            <div class="shop-card__body">
+              <p class="shop-card__genre">Space Sim</p>
+              <h3 class="shop-card__title">Stellar Odyssey 2</h3>
+              <div class="shop-card__tags">
+                <span class="badge badge-cyan">SALE</span>
+              </div>
+              <div class="shop-card__footer">
+                <div class="shop-card__price">$19.99</div>
+                <button class="shop-card__add">🛒</button>
+              </div>
+            </div>
+          </a>
+
+          <!-- Game 3 -->
+          <a href="game.html" class="shop-card">
+            <div class="shop-card__thumb" style="
+                  background: linear-gradient(
+                    135deg,
+                    rgba(150, 80, 255, 0.18),
+                    rgba(9, 11, 16, 1)
+                  );
+                ">
+              VOID PROTOCOL
+            </div>
+            <div class="shop-card__body">
+              <p class="shop-card__genre">FPS</p>
+              <h3 class="shop-card__title">Void Protocol</h3>
+              <div class="shop-card__tags">
+                <span class="badge badge-cyan">TOP RATED</span>
+              </div>
+              <div class="shop-card__footer">
+                <div class="shop-card__price">$44.99</div>
+                <button class="shop-card__add">🛒</button>
+              </div>
+            </div>
+          </a>
+
+          <!-- Game 4 -->
+          <a href="game.html" class="shop-card">
+            <div class="shop-card__thumb" style="
+                  background: linear-gradient(
+                    135deg,
+                    rgba(0, 255, 150, 0.18),
+                    rgba(9, 11, 16, 1)
+                  );
+                ">
+              CYBER KNIGHTS RPG<span class="shop-card__discount">-67%</span>
+            </div>
+            <div class="shop-card__body">
+              <p class="shop-card__genre">RPG</p>
+              <h3 class="shop-card__title">Cyber Knights RPG</h3>
+              <div class="shop-card__tags">
+                <span class="badge badge-cyan">SALE</span>
+              </div>
+              <div class="shop-card__footer">
+                <div class="shop-card__price">
+                  <span class="original">$39.99</span>$12.99
+                </div>
+                <button class="shop-card__add">🛒</button>
+              </div>
+            </div>
+          </a>
+
+          <!-- Game 5 -->
+          <a href="game.html" class="shop-card">
+            <div class="shop-card__thumb" style="
+                  background: linear-gradient(
+                    135deg,
+                    rgba(255, 200, 0, 0.18),
+                    rgba(9, 11, 16, 1)
+                  );
+                ">
+              DARKMATTER ZERO
+            </div>
+            <div class="shop-card__body">
+              <p class="shop-card__genre">Sci-Fi</p>
+              <h3 class="shop-card__title">DarkMatter Zero</h3>
+              <div class="shop-card__tags">
+                <span class="badge badge-cyan">COMING</span>
+              </div>
+              <div class="shop-card__footer">
+                <div class="shop-card__price">$34.99</div>
+                <button class="shop-card__add">🛒</button>
+              </div>
+            </div>
+          </a>
+
+          <!-- Game 6 -->
+          <a href="game.html" class="shop-card">
+            <div class="shop-card__thumb" style="
+                  background: linear-gradient(
+                    135deg,
+                    rgba(255, 100, 50, 0.18),
+                    rgba(9, 11, 16, 1)
+                  );
+                ">
+              CHAOS DUNGEON IV<span class="shop-card__discount">-24%</span>
+            </div>
+            <div class="shop-card__body">
+              <p class="shop-card__genre">Roguelike</p>
+              <h3 class="shop-card__title">Chaos Dungeon IV</h3>
+              <div class="shop-card__tags">
+                <span class="badge badge-cyan">SALE</span>
+              </div>
+              <div class="shop-card__footer">
+                <div class="shop-card__price">
+                  <span class="original">$24.99</span>$18.99
+                </div>
+                <button class="shop-card__add">🛒</button>
+              </div>
+            </div>
+          </a>
+
+          <!-- Game 7 -->
+          <a href="game.html" class="shop-card">
+            <div class="shop-card__thumb" style="
+                  background: linear-gradient(
+                    135deg,
+                    rgba(0, 255, 231, 0.18),
+                    rgba(9, 11, 16, 1)
+                  );
+                ">
+              PHANTOM CIRCUIT
+            </div>
+            <div class="shop-card__body">
+              <p class="shop-card__genre">Puzzle</p>
+              <h3 class="shop-card__title">Phantom Circuit</h3>
+              <div class="shop-card__tags">
+                <span class="badge badge-cyan">INDIE</span>
+              </div>
+              <div class="shop-card__footer">
+                <div class="shop-card__price">$9.99</div>
+                <button class="shop-card__add">🛒</button>
+              </div>
+            </div>
+          </a>
+
+          <!-- Game 8 -->
+          <a href="game.html" class="shop-card">
+            <div class="shop-card__thumb" style="
+                  background: linear-gradient(
+                    135deg,
+                    rgba(255, 50, 80, 0.18),
+                    rgba(9, 11, 16, 1)
+                  );
+                ">
+              THUNDER RALLY GT
+            </div>
+            <div class="shop-card__body">
+              <p class="shop-card__genre">Racing</p>
+              <h3 class="shop-card__title">Thunder Rally GT</h3>
+              <div class="shop-card__tags">
+                <span class="badge badge-cyan">NEW</span>
+              </div>
+              <div class="shop-card__footer">
+                <div class="shop-card__price">$27.99</div>
+                <button class="shop-card__add">🛒</button>
+              </div>
+            </div>
+          </a>
+
+          <!-- Game 9 -->
+          <a href="game.html" class="shop-card">
+            <div class="shop-card__thumb" style="
+                  background: linear-gradient(
+                    135deg,
+                    rgba(100, 200, 255, 0.18),
+                    rgba(9, 11, 16, 1)
+                  );
+                ">
+              IRON CITADEL<span class="shop-card__discount">-34%</span>
+            </div>
+            <div class="shop-card__body">
+              <p class="shop-card__genre">Strategy</p>
+              <h3 class="shop-card__title">Iron Citadel</h3>
+              <div class="shop-card__tags">
+                <span class="badge badge-cyan">SALE</span>
+              </div>
+              <div class="shop-card__footer">
+                <div class="shop-card__price">
+                  <span class="original">$34.99</span>$22.99
+                </div>
+                <button class="shop-card__add">🛒</button>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Pagination -->
+        <nav class="pagination">
+          <button class="page-btn">‹</button>
+          <button class="page-btn active">1</button>
+          <button class="page-btn">2</button>
+          <button class="page-btn">3</button>
+          <button class="page-btn">4</button>
+          <button class="page-btn">5</button>
+          <button class="page-btn">›</button>
+        </nav>
+      </main>
+    </div>
+  </div>
+
+  <!-- FOOTER (paste later) -->
+
+  <?php include("parts/footer.php"); ?>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
