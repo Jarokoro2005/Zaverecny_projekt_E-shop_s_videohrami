@@ -31,6 +31,10 @@ function getCSS(): void
     $stranka = basename($_SERVER['REQUEST_URI']);
     $stranka = explode(".", $stranka)[0];
 
+    if ($stranka === "") {
+        $stranka = "index";
+    }
+
     if (isset($data["sites"][$stranka])) {
         $suboryCSS = $data["sites"][$stranka];
 
