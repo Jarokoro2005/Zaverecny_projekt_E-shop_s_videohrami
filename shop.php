@@ -4,10 +4,6 @@ include_once("functions.php");
 
 <?php require("parts/header.php"); ?>
 
-<!-- NAV (paste later) -->
-
-<?php require("parts/nav.php"); ?>
-
 <div class="container">
   <!-- Page header -->
   <div class="page-header">

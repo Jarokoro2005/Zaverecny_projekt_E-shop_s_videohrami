@@ -4,9 +4,6 @@ include_once("functions.php");
 
 <?php require("parts/header.php"); ?>
 
-<!-- NAV (you said you'll paste it later) -->
-
-<?php require("parts/nav.php"); ?>
 
 <!-- HERO -->
 <section class="hero">
@@ -217,7 +214,7 @@ include_once("functions.php");
   </div>
 </section>
 
-<!-- FOOTER (you said you'll paste it later) -->
+<!-- FOOTER -->
 
 <?php include("parts/footer.php"); ?>
 

@@ -9,12 +9,10 @@ function getMeta(): array
     // 2. zistíme názov stránky
     $stranka = basename($_SERVER['REQUEST_URI']);
     $stranka = explode(".", $stranka)[0];
-
     // 3. ak meta existuje → vrátime ju
     if (isset($data["meta"][$stranka])) {
         return $data["meta"][$stranka];
     }
-
     // 4. fallback ak stránka nemá meta
     return [
         "title" => "GameVault",
@@ -29,10 +27,11 @@ function getCSS(): void
 
 
     $stranka = basename($_SERVER['REQUEST_URI']);
-    $stranka = explode(".", $stranka)[0];
 
-    if ($stranka === "") {
+    if ($stranka === "" || $stranka === "/" || !str_contains($stranka, ".")) {
         $stranka = "index";
+    } else {
+        $stranka = explode(".", $stranka)[0];
     }
 
     if (isset($data["sites"][$stranka])) {

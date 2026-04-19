@@ -4,10 +4,6 @@ include_once("functions.php");
 
 <?php require("parts/header.php"); ?>
 
-<!-- NAV will go here -->
-
-<?php require("parts/nav.php"); ?>
-
 <div class="container">
   <div class="page-header">
     <p class="page-header__eyebrow">// We are here for you</p>
