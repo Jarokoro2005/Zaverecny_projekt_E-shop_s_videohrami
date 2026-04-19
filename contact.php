@@ -63,7 +63,9 @@ include_once("functions.php");
         <h2 class="contact-form-title">Send a Message</h2>
         <p class="contact-form-subtitle">// Fields marked * are required</p>
 
-        <form class="contact-form" id="contactForm" novalidate>
+        <form class="contact-form" id="contactForm" method="POST" action="contact_submit.php">
+          <p>FORMULAR SA NACITAL</p>
+
           <div class="form-feedback" role="alert" aria-live="polite"></div>
 
           <div class="form-row">
@@ -79,12 +81,7 @@ include_once("functions.php");
             </div>
           </div>
 
-          <div class="form-group">
-            <label class="form-label" for="contact-order">Order ID
-              <span style="color: var(--muted)">(optional)</span></label>
-            <input class="form-control" type="text" id="contact-order" name="order_id"
-              placeholder="e.g. GV-2025-00492" />
-          </div>
+
 
           <div class="form-group">
             <label class="form-label" for="contact-topic">Topic *</label>

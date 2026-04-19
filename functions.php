@@ -1,9 +1,10 @@
 <?php
-
+$data_dir = __DIR__ . "/App/Data/datas.json";
 function getMeta(): array
 {
     // 1. načítame JSON
-    $jsonStr = file_get_contents("data/datas.json");
+    global $data_dir;
+    $jsonStr = file_get_contents($data_dir);
     $data = json_decode($jsonStr, true);
 
     // 2. zistíme názov stránky
@@ -29,7 +30,8 @@ function getMeta(): array
 
 function getCSS(): void
 {
-    $jsonStr = file_get_contents("data/datas.json");
+    global $data_dir;
+    $jsonStr = file_get_contents($data_dir);
     $data = json_decode($jsonStr, true);
 
 
@@ -61,7 +63,8 @@ function getActiveClass(): string
 
 function getMenu(): array
 {
-    $jsonStr = file_get_contents("data/datas.json");
+    global $data_dir;
+    $jsonStr = file_get_contents($data_dir);
     $data = json_decode($jsonStr, true);
 
     return $data["menu"] ?? [];
