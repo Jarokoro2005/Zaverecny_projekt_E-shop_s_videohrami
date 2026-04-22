@@ -6,7 +6,7 @@ class Database
 
     public function __construct(
         string $host = "localhost",
-        string $db = "gamevauaslt",
+        string $db = "gamevault",
         string $user = "root",
         string $pass = "",
         string $charset = "utf8mb4"

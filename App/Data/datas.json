@@ -16,7 +16,8 @@
   "sites": {
     "index": ["css/global.css", "css/home.css"],
     "contact": ["css/global.css", "css/contact.css"],
-    "shop": ["css/global.css", "css/shop.css"]
+    "shop": ["css/global.css", "css/shop.css"],
+    "thankyou": ["css/global.css", "css/thankyou.css"]
   },
   "menu": {
     "index": {

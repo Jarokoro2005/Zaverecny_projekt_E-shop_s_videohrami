@@ -36,7 +36,7 @@ try {
     $repo = new ContactRepository();
     $repo->createContact($name, $email, $topic, $message, $newsletter);
 
-    header("Location: contact.php?success=1");
+    header("Location: thankyou.php");
     exit;
 
 } catch (Exception $e) {
