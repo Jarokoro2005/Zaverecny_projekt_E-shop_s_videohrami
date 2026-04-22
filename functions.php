@@ -79,5 +79,33 @@ function printMenu(array $menu, string $currentPage): void
     }
 }
 
+// Theme handling with PHP
+function initTheme(): void
+{
+    // Start session if not already started (MUST be first!)
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    // Check if theme is being changed via GET parameter
+    if (isset($_GET['theme']) && ($_GET['theme'] === 'light' || $_GET['theme'] === 'dark')) {
+        $_SESSION['theme'] = $_GET['theme'];
+    }
+
+    // Set default theme to 'dark' if not set
+    if (!isset($_SESSION['theme'])) {
+        $_SESSION['theme'] = 'dark';
+    }
+}
+
+function getTheme(): string
+{
+    return $_SESSION['theme'] ?? 'dark';
+}
+
+function getThemeIcon(): string
+{
+    return getTheme() === 'light' ? '☀️' : '🌙';
+}
 
 ?>

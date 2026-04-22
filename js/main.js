@@ -7,7 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("MAIN JS LOADED");
   const btn = document.querySelector('button[type="submit"]');
   console.log("BUTTON FOUND:", btn);
-  btn.addEventListener("click", () => console.log("BUTTON CLICKED"));
+  if (btn) {
+    btn.addEventListener("click", () => console.log("BUTTON CLICKED"));
+  }
 
   /* ── Mobile nav toggle ───────────────────────────────────── */
   const toggle = document.querySelector(".navbar__toggle");
