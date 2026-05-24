@@ -1,8 +1,13 @@
 <?php
-include_once("functions.php");
+require_once __DIR__ . '/../app/bootstrap.php';
+
+$errors = $_SESSION['contact_errors'] ?? [];
+$old = $_SESSION['contact_old'] ?? [];
+
+unset($_SESSION['contact_errors'], $_SESSION['contact_old']);
 ?>
 
-<?php require("parts/header.php"); ?>
+<?php require_once __DIR__ . '/../app/Views/layout/header.php'; ?>
 
 <div class="container">
   <div class="page-header">
@@ -50,11 +55,11 @@ include_once("functions.php");
 
         <p class="contact-social-title">Follow Us</p>
         <div class="contact-social-links">
-          <a href="#" class="social-link" aria-label="Twitter/X">𝕏</a>
-          <a href="#" class="social-link" aria-label="Discord">🎮</a>
-          <a href="#" class="social-link" aria-label="YouTube">▶</a>
-          <a href="#" class="social-link" aria-label="Twitch">📺</a>
-          <a href="#" class="social-link" aria-label="Instagram">📷</a>
+          <a href="https://twitter.com/example" class="social-link" aria-label="Twitter/X">𝕏</a>
+          <a href="https://discord.gg/example" class="social-link" aria-label="Discord">🎮</a>
+          <a href="https://youtube.com/example" class="social-link" aria-label="YouTube">▶</a>
+          <a href="https://twitch.tv/example" class="social-link" aria-label="Twitch">📺</a>
+          <a href="https://instagram.com/example" class="social-link" aria-label="Instagram">📷</a>
         </div>
       </div>
 
@@ -63,40 +68,45 @@ include_once("functions.php");
         <h2 class="contact-form-title">Send a Message</h2>
         <p class="contact-form-subtitle">// Fields marked * are required</p>
 
-        <form class="contact-form" id="contactForm" novalidate>
-          <div class="form-feedback" role="alert" aria-live="polite"></div>
+        <form class="contact-form" id="contactForm" method="POST" action="contact_submit.php" novalidate>
+          <?php if (!empty($errors)): ?>
+            <div class="form-feedback error" role="alert" aria-live="polite">
+              <ul>
+                <?php foreach ($errors as $error): ?>
+                  <li><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></li>
+                <?php endforeach; ?>
+              </ul>
+            </div>
+          <?php else: ?>
+            <div class="form-feedback" role="alert" aria-live="polite"></div>
+          <?php endif; ?>
 
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="contact-name">Full Name *</label>
               <input class="form-control" type="text" id="contact-name" name="name" placeholder="Your name"
-                autocomplete="name" required />
+                value="<?= htmlspecialchars($old['name'] ?? '', ENT_QUOTES, 'UTF-8') ?>" autocomplete="name" required />
             </div>
             <div class="form-group">
               <label class="form-label" for="contact-email">Email Address *</label>
               <input class="form-control" type="email" id="contact-email" name="email" placeholder="you@example.com"
-                autocomplete="email" required />
+                value="<?= htmlspecialchars($old['email'] ?? '', ENT_QUOTES, 'UTF-8') ?>" autocomplete="email" required />
             </div>
           </div>
 
-          <div class="form-group">
-            <label class="form-label" for="contact-order">Order ID
-              <span style="color: var(--muted)">(optional)</span></label>
-            <input class="form-control" type="text" id="contact-order" name="order_id"
-              placeholder="e.g. GV-2025-00492" />
-          </div>
+
 
           <div class="form-group">
             <label class="form-label" for="contact-topic">Topic *</label>
             <select class="form-control" id="contact-topic" name="topic" required>
-              <option value="" disabled selected>Select a topic…</option>
-              <option value="order">Order &amp; Payment</option>
-              <option value="key">Game Key Issue</option>
-              <option value="technical">Technical Issue</option>
-              <option value="refund">Refund Request</option>
-              <option value="account">Account Problem</option>
-              <option value="partnership">Partnership / Press</option>
-              <option value="other">Other</option>
+              <option value="" disabled <?= empty($old['topic']) ? 'selected' : '' ?>>Select a topic…</option>
+              <option value="order" <?= ($old['topic'] ?? '') === 'order' ? 'selected' : '' ?>>Order &amp; Payment</option>
+              <option value="key" <?= ($old['topic'] ?? '') === 'key' ? 'selected' : '' ?>>Game Key Issue</option>
+              <option value="technical" <?= ($old['topic'] ?? '') === 'technical' ? 'selected' : '' ?>>Technical Issue</option>
+              <option value="refund" <?= ($old['topic'] ?? '') === 'refund' ? 'selected' : '' ?>>Refund Request</option>
+              <option value="account" <?= ($old['topic'] ?? '') === 'account' ? 'selected' : '' ?>>Account Problem</option>
+              <option value="partnership" <?= ($old['topic'] ?? '') === 'partnership' ? 'selected' : '' ?>>Partnership / Press</option>
+              <option value="other" <?= ($old['topic'] ?? '') === 'other' ? 'selected' : '' ?>>Other</option>
             </select>
           </div>
 
@@ -104,12 +114,12 @@ include_once("functions.php");
             <label class="form-label" for="contact-message">Message *</label>
             <textarea class="form-control" id="contact-message" name="message"
               placeholder="Describe your issue or question in as much detail as possible…" maxlength="1000"
-              required></textarea>
+              required><?= htmlspecialchars($old['message'] ?? '', ENT_QUOTES, 'UTF-8') ?></textarea>
             <span class="char-counter">0 / 1000</span>
           </div>
 
           <div class="filter-item" style="padding: 0.2rem 0">
-            <input type="checkbox" id="newsletter" name="newsletter" value="1" />
+            <input type="checkbox" id="newsletter" name="newsletter" value="1" <?= isset($old['newsletter']) ? 'checked' : '' ?> />
             <label for="newsletter" style="font-size: 0.85rem; color: var(--muted)">
               Subscribe to GameVault news and exclusive deals
             </label>
@@ -201,9 +211,9 @@ include_once("functions.php");
 </div>
 
 <!-- FOOTER will go here -->
-<?php include("parts/footer.php"); ?>
+<?php require_once __DIR__ . '/../app/Views/layout/footer.php'; ?>
 
-<script src="js/main.js"></script>
+<script src="assets/js/main.js?v=2"></script>
 </body>
 
 </html>

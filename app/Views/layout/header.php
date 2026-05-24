@@ -1,8 +1,4 @@
-<?php
-include_once("functions.php");
-$nane_of_page = getActiveClass();
-$meta = getMeta();
-?>
+<?php $meta = Helpers::getMeta(); ?>
 
 <!doctype html>
 <html lang="en">
@@ -10,17 +6,16 @@ $meta = getMeta();
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="<?= $meta['description'] ?>" />
-    <title><?= $meta['title'] ?> </title>
+    <meta name="description" content="<?= htmlspecialchars($meta['description'], ENT_QUOTES, 'UTF-8') ?>" />
+    <title><?= htmlspecialchars($meta['title'], ENT_QUOTES, 'UTF-8') ?></title>
 
-    <?php getCSS(); ?>
+    <?php Helpers::getCSS(); ?>
 </head>
 
 <body>
 
     <nav class="navbar">
         <div class="container navbar__inner">
-            <!-- Logo -->
             <a href="index.php" class="navbar__logo">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path
@@ -29,14 +24,10 @@ $meta = getMeta();
                 GAME<span style="color: var(--magenta)">VAULT</span>
             </a>
 
-            <!-- Links -->
             <ul class="navbar__links" id="navLinks">
-                <?php printMenu(getMenu(), getActiveClass()); ?>
-                <!-- <li><a href="index.php" class="active">Home</a></li> -->
-
-
+                <?php Helpers::printMenu(Helpers::getMenu(), Helpers::getActiveClass()); ?>
             </ul>
-            <!-- Actions -->
+
             <div class="navbar__actions">
                 <button class="navbar__cart" aria-label="Shopping cart">
                     🛒 <span>Cart</span>
