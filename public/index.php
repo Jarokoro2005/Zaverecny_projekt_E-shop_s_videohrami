@@ -1,8 +1,8 @@
 <?php
-include_once("functions.php");
+require_once __DIR__ . '/../app/bootstrap.php';
 ?>
 
-<?php require("parts/header.php"); ?>
+<?php require_once __DIR__ . '/../app/Views/layout/header.php'; ?>
 
 
 <!-- HERO -->
@@ -26,8 +26,8 @@ include_once("functions.php");
       </p>
 
       <div class="hero__cta">
-        <a href="shop.html" class="btn btn-solid"><span>Browse Games</span></a>
-        <a href="shop.html?sort=discount" class="btn btn-magenta"><span>View Deals</span></a>
+        <a href="shop.php" class="btn btn-solid"><span>Browse Games</span></a>
+        <a href="shop.php?sort=discount" class="btn btn-magenta"><span>View Deals</span></a>
       </div>
 
       <div class="hero__stats">
@@ -72,7 +72,7 @@ include_once("functions.php");
 
     <div class="featured-grid">
       <!-- Game 1 -->
-      <a href="game.html" class="game-card">
+      <a href="shop.php" class="game-card">
         <div class="game-card__thumb">
           <div class="game-card__thumb-placeholder" style="
                   background: linear-gradient(
@@ -102,7 +102,7 @@ include_once("functions.php");
       </a>
 
       <!-- Game 2 -->
-      <a href="game.html" class="game-card">
+      <a href="shop.php" class="game-card">
         <div class="game-card__thumb">
           <div class="game-card__thumb-placeholder" style="
                   background: linear-gradient(
@@ -129,7 +129,7 @@ include_once("functions.php");
       </a>
 
       <!-- Game 3 -->
-      <a href="game.html" class="game-card">
+      <a href="shop.php" class="game-card">
         <div class="game-card__thumb">
           <div class="game-card__thumb-placeholder" style="
                   background: linear-gradient(
@@ -165,17 +165,17 @@ include_once("functions.php");
     <div class="section-line"></div>
 
     <div class="categories-grid">
-      <a href="shop.html?genre=action" class="cat-card"><span class="cat-card__icon">⚔️</span><span
+      <a href="shop.php?genre=action" class="cat-card"><span class="cat-card__icon">⚔️</span><span
           class="cat-card__name">Action</span></a>
-      <a href="shop.html?genre=rpg" class="cat-card"><span class="cat-card__icon">🧙</span><span
+      <a href="shop.php?genre=rpg" class="cat-card"><span class="cat-card__icon">🧙</span><span
           class="cat-card__name">RPG</span></a>
-      <a href="shop.html?genre=sci-fi" class="cat-card"><span class="cat-card__icon">🚀</span><span
+      <a href="shop.php?genre=sci-fi" class="cat-card"><span class="cat-card__icon">🚀</span><span
           class="cat-card__name">Sci-Fi</span></a>
-      <a href="shop.html?genre=puzzle" class="cat-card"><span class="cat-card__icon">🧩</span><span
+      <a href="shop.php?genre=puzzle" class="cat-card"><span class="cat-card__icon">🧩</span><span
           class="cat-card__name">Puzzle</span></a>
-      <a href="shop.html?genre=racing" class="cat-card"><span class="cat-card__icon">🏎️</span><span
+      <a href="shop.php?genre=racing" class="cat-card"><span class="cat-card__icon">🏎️</span><span
           class="cat-card__name">Racing</span></a>
-      <a href="shop.html?genre=indie" class="cat-card"><span class="cat-card__icon">👾</span><span
+      <a href="shop.php?genre=indie" class="cat-card"><span class="cat-card__icon">👾</span><span
           class="cat-card__name">Indie</span></a>
     </div>
   </div>
@@ -194,7 +194,7 @@ include_once("functions.php");
           Hundreds of titles slashed. Limited time only — don't sleep on
           this.
         </p>
-        <a href="shop.html?sort=discount" class="btn btn-magenta" style="margin-top: 1.5rem">
+        <a href="shop.php?sort=discount" class="btn btn-magenta" style="margin-top: 1.5rem">
           <span>Shop the Sale</span>
         </a>
       </div>
@@ -216,9 +216,9 @@ include_once("functions.php");
 
 <!-- FOOTER -->
 
-<?php include("parts/footer.php"); ?>
+<?php require_once __DIR__ . '/../app/Views/layout/footer.php'; ?>
 
-<script src="js/main.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 
 </html>

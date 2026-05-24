@@ -4,13 +4,19 @@ class Database
 {
     private PDO $pdo;
 
-    public function __construct(
-        string $host = "localhost",
-        string $db = "gamevault",
-        string $user = "root",
-        string $pass = "",
-        string $charset = "utf8mb4"
-    ) {
+    public function __construct(array $dbConfig = [])
+    {
+        if (empty($dbConfig)) {
+            $config = require __DIR__ . '/../../config/config.php';
+            $dbConfig = $config['db'] ?? [];
+        }
+
+        $host = $dbConfig['host'] ?? 'localhost';
+        $db = $dbConfig['name'] ?? 'gamevault';
+        $user = $dbConfig['user'] ?? 'root';
+        $pass = $dbConfig['pass'] ?? '';
+        $charset = $dbConfig['charset'] ?? 'utf8mb4';
+
         $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 
         $options = [
@@ -21,11 +27,9 @@ class Database
         try {
             $this->pdo = new PDO($dsn, $user, $pass, $options);
         } catch (PDOException $e) {
-            // Log, custom error page, fallback...
-            die("Database connection failed: " . $e->getMessage());
+            die('Database connection failed: ' . $e->getMessage());
         }
     }
-
 
     public function getConnection(): PDO
     {

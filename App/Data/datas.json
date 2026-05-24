@@ -14,10 +14,10 @@
     }
   },
   "sites": {
-    "index": ["css/global.css", "css/home.css"],
-    "contact": ["css/global.css", "css/contact.css"],
-    "shop": ["css/global.css", "css/shop.css"],
-    "thankyou": ["css/global.css", "css/thankyou.css"]
+    "index": ["assets/css/global.css", "assets/css/home.css"],
+    "contact": ["assets/css/global.css", "assets/css/contact.css"],
+    "shop": ["assets/css/global.css", "assets/css/shop.css"],
+    "thankyou": ["assets/css/global.css", "assets/css/thankyou.css"]
   },
   "menu": {
     "index": {

@@ -129,38 +129,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ── Contact form: char counter ─────────────────────────── */
-  const msgField = document.querySelector("#contact-message");
-  const charCount = document.querySelector(".char-counter");
-  if (msgField && charCount) {
-    msgField.addEventListener("input", () => {
-      charCount.textContent = msgField.value.length + " / 1000";
-    });
-  }
-
-  /* ── Contact form: client-side validation feedback ───────── */
-  const contactForm = document.querySelector(".contact-form");
-  if (contactForm) {
-    contactForm.addEventListener("submit", (e) => {
-      const feedback = contactForm.querySelector(".form-feedback");
-      const name = contactForm.querySelector('[name="name"]').value.trim();
-      const email = contactForm.querySelector('[name="email"]').value.trim();
-      const msg = contactForm.querySelector('[name="message"]').value.trim();
-      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-      // ❌ Ak je chyba → zastavíme submit
-      if (!name || !email || !msg || !emailOk) {
-        e.preventDefault();
-        feedback.className = "form-feedback error";
-        feedback.innerHTML =
-          "⚠ Please fill in all required fields with valid information.";
-        return false;
-      }
-
-      // ✔ Ak je všetko OK → povolíme submit
-      return true;
-    });
-  }
-
+  //const msgField = document.querySelector("#contact-message");
+  //const charCount = document.querySelector(".char-counter");
+  //if (msgField && charCount) {
+  //  msgField.addEventListener("input", () => {
+  //    charCount.textContent = msgField.value.length + " / 1000";
+  //  });
+  //}
+//
   /* ── Thumbnail gallery (game detail) ────────────────────── */
   document.querySelectorAll(".thumb-item").forEach((thumb) => {
     thumb.addEventListener("click", () => {

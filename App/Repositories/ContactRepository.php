@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . "/../Core/database.php";
+require_once __DIR__ . '/../Core/database.php';
 
 class ContactRepository
 {
@@ -12,7 +12,6 @@ class ContactRepository
         $this->pdo = $db->getConnection();
     }
 
-    // CREATE
     public function createContact(
         string $name,
         string $email,
@@ -30,28 +29,24 @@ class ContactRepository
             ':email' => $email,
             ':topic' => $topic,
             ':message' => $message,
-            ':newsletter' => $newsletter
+            ':newsletter' => $newsletter,
         ]);
     }
 
-    // READ ALL
     public function getAll(): array
     {
-        $stmt = $this->pdo->query("SELECT * FROM contact_messages ORDER BY id DESC");
+        $stmt = $this->pdo->query('SELECT * FROM contact_messages ORDER BY id DESC');
         return $stmt->fetchAll();
     }
 
-    // READ ONE
     public function getById(int $id): ?array
     {
-        $stmt = $this->pdo->prepare("SELECT * FROM contact_messages WHERE id = :id");
+        $stmt = $this->pdo->prepare('SELECT * FROM contact_messages WHERE id = :id');
         $stmt->execute([':id' => $id]);
-
         $result = $stmt->fetch();
         return $result ?: null;
     }
 
-    // UPDATE
     public function updateContact(
         int $id,
         string $name,
@@ -76,14 +71,22 @@ class ContactRepository
             ':email' => $email,
             ':topic' => $topic,
             ':message' => $message,
-            ':newsletter' => $newsletter
+            ':newsletter' => $newsletter,
         ]);
     }
 
-    // DELETE
     public function deleteContact(int $id): bool
     {
-        $stmt = $this->pdo->prepare("DELETE FROM contact_messages WHERE id = :id");
+        $stmt = $this->pdo->prepare('DELETE FROM contact_messages WHERE id = :id');
         return $stmt->execute([':id' => $id]);
+    }
+
+    public function updateSeen(int $id, int $seen): bool
+    {
+        $stmt = $this->pdo->prepare('UPDATE contact_messages SET seen = :seen WHERE id = :id');
+        return $stmt->execute([
+            ':id' => $id,
+            ':seen' => $seen,
+        ]);
     }
 }

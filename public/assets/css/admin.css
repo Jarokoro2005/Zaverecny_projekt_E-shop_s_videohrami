@@ -1,0 +1,246 @@
+/* ============================================================
+   GAMEVAULT — Admin Stylesheet
+   Tables · Forms · Buttons · Layout
+   ============================================================ */
+
+/* ── Admin Layout ─────────────────────────────────────────── */
+main.container {
+  padding: 2rem 0;
+  min-height: calc(100vh - 200px);
+}
+
+/* ── Tables ───────────────────────────────────────────────── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-cyan);
+}
+
+th,
+td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  background: var(--bg-mid);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+}
+
+td {
+  font-size: 0.95rem;
+}
+
+tr:hover {
+  background: var(--bg-mid);
+}
+
+/* ── Forms ────────────────────────────────────────────────── */
+form {
+  background: var(--bg-card);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-magenta);
+  margin: 1rem 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--cyan);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--bg-mid);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--white);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  transition: var(--transition);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 2px rgba(0, 255, 231, 0.2);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+input[type="checkbox"] {
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+/* ── Buttons ──────────────────────────────────────────────── */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--magenta);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn:hover {
+  background: var(--magenta-dim);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-magenta);
+  
+}
+
+.btn--primary {
+  background: var(--cyan);
+}
+
+.btn--primary:hover {
+  
+  background: var(--cyan-dim);
+  box-shadow: var(--shadow-cyan);
+}
+
+.btn--danger {
+  background: #ff4444;
+}
+
+.btn--danger:hover {
+  background: #cc3333;
+}
+
+/* ── Links in Actions ─────────────────────────────────────── */
+td a {
+  color: rgb(255, 255, 255, 0.8);
+  text-decoration: none;
+  margin-right: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+td a:hover {
+  background: var(--bg-mid);
+  color: var(--yellow);
+}
+
+.table-action-form {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  padding: 0;
+  margin: 0 0.5rem 0 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.table-action-form .btn {
+  min-width: 9.5rem;
+  min-height: 2.25rem;
+  justify-content: center;
+  padding: 0.45rem 0.85rem;
+  line-height: 1;
+  transform: none;
+}
+
+.table-action-form .btn:hover {
+  color: var(--bg);
+  transform: none;
+}
+
+.table-action-form .btn:hover * {
+  color: var(--bg);
+}
+
+/* ── Messages ─────────────────────────────────────────────── */
+.alert {
+  padding: 1rem;
+  border-radius: var(--radius);
+  margin: 1rem 0;
+  font-weight: 600;
+}
+
+.alert--success {
+  background: rgba(0, 255, 231, 0.1);
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+}
+
+.alert--error {
+  background: rgba(255, 68, 68, 0.1);
+  border: 1px solid #ff4444;
+  color: #ff4444;
+}
+
+.alert--info {
+  background: rgba(255, 230, 0, 0.1);
+  border: 1px solid var(--yellow);
+  color: var(--yellow);
+}
+
+/* ── Form Feedback ────────────────────────────────────────── */
+.form-feedback {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+}
+
+.form-feedback.error {
+  background: rgba(255, 68, 68, 0.1);
+  border: 1px solid #ff4444;
+  color: #ff4444;
+}
+
+.form-feedback.success {
+  background: rgba(0, 255, 231, 0.1);
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  table {
+    font-size: 0.9rem;
+  }
+
+  th,
+  td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  form {
+    padding: 1rem;
+  }
+
+  .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}

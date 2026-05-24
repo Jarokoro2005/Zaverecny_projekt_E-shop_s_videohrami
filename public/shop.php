@@ -1,8 +1,8 @@
 <?php
-include_once("functions.php");
+require_once __DIR__ . '/../app/bootstrap.php';
 ?>
 
-<?php require("parts/header.php"); ?>
+<?php require_once __DIR__ . '/../app/Views/layout/header.php'; ?>
 
 <div class="container">
   <!-- Page header -->
@@ -146,7 +146,7 @@ include_once("functions.php");
       <!-- GAMES GRID -->
       <div class="games-grid" id="gamesGrid">
         <!-- Game 1 -->
-        <a href="game.html" class="shop-card">
+        <a href="shop.php" class="shop-card">
           <div class="shop-card__thumb" style="
                   background: linear-gradient(
                     135deg,
@@ -173,7 +173,7 @@ include_once("functions.php");
         </a>
 
         <!-- Game 2 -->
-        <a href="game.html" class="shop-card">
+        <a href="shop.php" class="shop-card">
           <div class="shop-card__thumb" style="
                   background: linear-gradient(
                     135deg,
@@ -197,7 +197,7 @@ include_once("functions.php");
         </a>
 
         <!-- Game 3 -->
-        <a href="game.html" class="shop-card">
+        <a href="shop.php" class="shop-card">
           <div class="shop-card__thumb" style="
                   background: linear-gradient(
                     135deg,
@@ -221,7 +221,7 @@ include_once("functions.php");
         </a>
 
         <!-- Game 4 -->
-        <a href="game.html" class="shop-card">
+        <a href="shop.php" class="shop-card">
           <div class="shop-card__thumb" style="
                   background: linear-gradient(
                     135deg,
@@ -247,7 +247,7 @@ include_once("functions.php");
         </a>
 
         <!-- Game 5 -->
-        <a href="game.html" class="shop-card">
+        <a href="shop.php" class="shop-card">
           <div class="shop-card__thumb" style="
                   background: linear-gradient(
                     135deg,
@@ -271,7 +271,7 @@ include_once("functions.php");
         </a>
 
         <!-- Game 6 -->
-        <a href="game.html" class="shop-card">
+        <a href="shop.php" class="shop-card">
           <div class="shop-card__thumb" style="
                   background: linear-gradient(
                     135deg,
@@ -297,7 +297,7 @@ include_once("functions.php");
         </a>
 
         <!-- Game 7 -->
-        <a href="game.html" class="shop-card">
+        <a href="shop.php" class="shop-card">
           <div class="shop-card__thumb" style="
                   background: linear-gradient(
                     135deg,
@@ -321,7 +321,7 @@ include_once("functions.php");
         </a>
 
         <!-- Game 8 -->
-        <a href="game.html" class="shop-card">
+        <a href="shop.php" class="shop-card">
           <div class="shop-card__thumb" style="
                   background: linear-gradient(
                     135deg,
@@ -345,7 +345,7 @@ include_once("functions.php");
         </a>
 
         <!-- Game 9 -->
-        <a href="game.html" class="shop-card">
+        <a href="shop.php" class="shop-card">
           <div class="shop-card__thumb" style="
                   background: linear-gradient(
                     135deg,
@@ -387,9 +387,9 @@ include_once("functions.php");
 
 <!-- FOOTER (paste later) -->
 
-<?php include("parts/footer.php"); ?>
+<?php require_once __DIR__ . '/../app/Views/layout/footer.php'; ?>
 
-<script src="js/main.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 
 </html>

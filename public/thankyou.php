@@ -1,6 +1,8 @@
-<?php require("parts/header.php"); ?>
+<?php
+require_once __DIR__ . '/../app/bootstrap.php';
+?>
 
-<link rel="stylesheet" href="assets/css/thankyou.css">
+<?php require_once __DIR__ . '/../app/Views/layout/header.php'; ?>
 
 <div class="container thankyou-wrapper" style="text-align:center; padding: 4rem 1rem;">
     <div style="max-width: 600px; margin: 0 auto;">
@@ -12,7 +14,7 @@
         </h1>
 
         <p class="thankyou-text">
-            Your message has been successfully sent.  
+            Your message has been successfully sent.
             Our support team will get back to you within 24 hours on business days.
         </p>
 
@@ -27,9 +29,9 @@
 </div>
 
 <script>
-setTimeout(() => {
-    window.location.href = "index.php";
-}, 5000);
+    setTimeout(() => {
+        window.location.href = "index.php";
+    }, 5000);
 </script>
 
-<?php require("parts/footer.php"); ?>
+<?php require_once __DIR__ . '/../app/Views/layout/footer.php'; ?>
