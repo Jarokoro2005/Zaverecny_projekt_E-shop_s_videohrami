@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
     filterToggle.addEventListener("click", () => {
       sidebarBody.classList.toggle("open");
       filterToggle.querySelector(".ft-arrow").textContent =
-        sidebarBody.classList.contains("open") ? "▲" : "▼";
+        sidebarBody.classList.contains("open") ? "^" : "v";
     });
   }
 
@@ -123,8 +123,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const maxLabel = document.querySelector(".price-max");
   if (slider && maxLabel) {
     slider.addEventListener("input", () => {
-      maxLabel.textContent = "$" + slider.value;
-      slider.style.setProperty("--val", slider.value + "%");
+      maxLabel.textContent = slider.value + " EUR";
+      const percent = (Number(slider.value) / Number(slider.max || 1)) * 100;
+      slider.style.setProperty("--val", percent + "%");
     });
   }
 
