@@ -11,7 +11,11 @@ class AuthController extends BaseController
 
     public function showLogin(string $error = ''): void
     {
-        $this->render('login.php', ['error' => $error]);
+        if (!empty($_SESSION['admin_logged_in'])) {
+            $this->redirect('index.php');
+        }
+
+        $this->render('auth/login.php', ['error' => $error]);
     }
 
     public function login(array $input): void

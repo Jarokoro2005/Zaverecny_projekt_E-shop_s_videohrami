@@ -7,7 +7,7 @@
 </footer>
 
 <!-- JS -->
-<script src="/testlen/js/main.js"></script>
+<script src="<?= htmlspecialchars($publicUrl . '/assets/js/main.js') ?>"></script>
 </body>
 
 </html>

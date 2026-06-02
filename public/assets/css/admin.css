@@ -205,6 +205,14 @@ td a:hover {
 }
 
 /* ── Form Feedback ────────────────────────────────────────── */
+.message-body {
+  max-width: 100%;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  line-height: 1.6;
+}
+
 .form-feedback {
   margin-top: 1rem;
   padding: 0.75rem;

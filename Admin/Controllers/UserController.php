@@ -40,7 +40,7 @@ class UserController extends BaseController
             }
         }
 
-        $this->render('add_user.php', [
+        $this->render('users/create.php', [
             'error' => $error,
             'success' => $success,
             'input' => $input,

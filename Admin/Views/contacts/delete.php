@@ -1,4 +1,4 @@
-<?php include __DIR__ . '/../parts/header.php'; ?>
+<?php include __DIR__ . '/../../parts/header.php'; ?>
 
 <h1>Delete Contact Message</h1>
 
@@ -14,7 +14,7 @@
 
 <form method="POST">
     <button type="submit" class="btn btn--danger">Yes, Delete</button>
-    <a href="/testlen/Admin/contact_messages.php" class="btn">Cancel</a>
+    <a href="<?= htmlspecialchars($adminUrl . '/contact_messages.php') ?>" class="btn">Cancel</a>
 </form>
 
-<?php include __DIR__ . '/../parts/footer.php'; ?>
+<?php include __DIR__ . '/../../parts/footer.php'; ?>

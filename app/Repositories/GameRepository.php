@@ -66,7 +66,20 @@ class GameRepository
 
         return (float) $stmt->fetchColumn();
     }
+    ///decrease game stock by id
+    public function decreaseStock(int $id): bool
+    {
+        $stmt = $this->pdo->prepare('UPDATE games SET stock = stock - 1 WHERE id = :id AND stock > 0');
+        return $stmt->execute([':id' => $id]);
+    }
+    ///increase game stock by id
+    public function increaseStock(int $id): bool
+    {
+        $stmt = $this->pdo->prepare('UPDATE games SET stock = stock + 1 WHERE id = :id');
+        return $stmt->execute([':id' => $id]);
+    }
 
+    /// Helper method to build the WHERE clause based on filters
     private function buildWhere(array $filters, array &$params): string
     {
         $where = [];

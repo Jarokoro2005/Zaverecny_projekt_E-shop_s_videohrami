@@ -1,4 +1,4 @@
-<?php include __DIR__ . '/../parts/header.php'; ?>
+<?php include __DIR__ . '/../../parts/header.php'; ?>
 
 <h1>Add Admin / Employee</h1>
 
@@ -32,4 +32,4 @@
     <button type="submit" class="btn btn--primary">Create User</button>
 </form>
 
-<?php include __DIR__ . '/../parts/footer.php'; ?>
+<?php include __DIR__ . '/../../parts/footer.php'; ?>

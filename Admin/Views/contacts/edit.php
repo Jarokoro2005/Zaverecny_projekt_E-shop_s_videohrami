@@ -1,4 +1,4 @@
-<?php include __DIR__ . '/../parts/header.php'; ?>
+<?php include __DIR__ . '/../../parts/header.php'; ?>
 
 <h1>Edit Contact Message</h1>
 
@@ -30,6 +30,6 @@
     <button type="submit" class="btn btn--primary">Update</button>
 </form>
 
-<a href="/testlen/Admin/contact_messages.php" class="btn">Back to Messages</a>
+<a href="<?= htmlspecialchars($adminUrl . '/contact_messages.php') ?>" class="btn">Back to Messages</a>
 
-<?php include __DIR__ . '/../parts/footer.php'; ?>
+<?php include __DIR__ . '/../../parts/footer.php'; ?>

@@ -1,4 +1,4 @@
-<?php include __DIR__ . '/../parts/header.php'; ?>
+<?php include __DIR__ . '/../../parts/header.php'; ?>
 
 <div style="max-width: 400px; margin: 4rem auto; text-align: center;">
     <h1>Admin Login</h1>
@@ -14,4 +14,4 @@
     </form>
 </div>
 
-<?php include __DIR__ . '/../parts/footer.php'; ?>
+<?php include __DIR__ . '/../../parts/footer.php'; ?>

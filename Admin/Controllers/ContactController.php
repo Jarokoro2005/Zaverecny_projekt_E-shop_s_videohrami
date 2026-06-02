@@ -13,7 +13,7 @@ class ContactController extends BaseController
     {
         $this->requireLogin();
         $messages = $this->repo->getAll();
-        $this->render('contact_messages.php', [
+        $this->render('contacts/index.php', [
             'messages' => $messages,
             'deleted' => $_GET['deleted'] ?? null,
         ]);
@@ -28,7 +28,7 @@ class ContactController extends BaseController
             die('Message not found');
         }
 
-        $this->render('contact_detail.php', ['message' => $message]);
+        $this->render('contacts/show.php', ['message' => $message]);
     }
 
     public function edit(int $id, array $input): void
@@ -73,7 +73,7 @@ class ContactController extends BaseController
             }
         }
 
-        $this->render('contact_edit.php', [
+        $this->render('contacts/edit.php', [
             'message' => $message,
             'errors' => $errors,
             'success' => $success,
@@ -93,13 +93,13 @@ class ContactController extends BaseController
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($this->repo->deleteContact($id)) {
-                $this->redirect('/testlen/Admin/contact_messages.php?deleted=1');
+                $this->redirect($this->adminUrl('contact_messages.php?deleted=1'));
                 return;
             }
             $error = 'Failed to delete message.';
         }
 
-        $this->render('contact_delete.php', [
+        $this->render('contacts/delete.php', [
             'message' => $message,
             'error' => $error,
         ]);
@@ -110,13 +110,13 @@ class ContactController extends BaseController
         $this->requireLogin();
 
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            $this->redirect('/testlen/Admin/contact_messages.php');
+            $this->redirect($this->adminUrl('contact_messages.php'));
         }
 
         $seen = isset($input['seen']) && $input['seen'] === '1' ? 1 : 0;
         $this->repo->updateSeen($id, $seen);
 
-        $back = $input['back'] ?? '/testlen/Admin/contact_messages.php';
+        $back = $input['back'] ?? $this->adminUrl('contact_messages.php');
         $this->redirect($back);
     }
 }
