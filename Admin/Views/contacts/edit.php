@@ -30,6 +30,6 @@
     <button type="submit" class="btn btn--primary">Update</button>
 </form>
 
-<a href="<?= htmlspecialchars($adminUrl . '/contact_messages.php') ?>" class="btn">Back to Messages</a>
+<a href="<?= htmlspecialchars($adminUrl . '/contacts.php') ?>" class="btn">Back to Messages</a>
 
 <?php include __DIR__ . '/../../parts/footer.php'; ?>

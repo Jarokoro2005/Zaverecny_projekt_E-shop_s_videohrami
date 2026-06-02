@@ -14,7 +14,7 @@
 
 <form method="POST">
     <button type="submit" class="btn btn--danger">Yes, Delete</button>
-    <a href="<?= htmlspecialchars($adminUrl . '/contact_messages.php') ?>" class="btn">Cancel</a>
+    <a href="<?= htmlspecialchars($adminUrl . '/contacts.php') ?>" class="btn">Cancel</a>
 </form>
 
 <?php include __DIR__ . '/../../parts/footer.php'; ?>

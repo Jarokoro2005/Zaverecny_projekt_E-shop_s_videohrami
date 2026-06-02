@@ -93,7 +93,7 @@ class ContactController extends BaseController
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($this->repo->deleteContact($id)) {
-                $this->redirect($this->adminUrl('contact_messages.php?deleted=1'));
+                $this->redirect($this->adminUrl('contacts.php?deleted=1'));
                 return;
             }
             $error = 'Failed to delete message.';
@@ -110,13 +110,13 @@ class ContactController extends BaseController
         $this->requireLogin();
 
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            $this->redirect($this->adminUrl('contact_messages.php'));
+            $this->redirect($this->adminUrl('contacts.php'));
         }
 
         $seen = isset($input['seen']) && $input['seen'] === '1' ? 1 : 0;
         $this->repo->updateSeen($id, $seen);
 
-        $back = $input['back'] ?? $this->adminUrl('contact_messages.php');
+        $back = $input['back'] ?? $this->adminUrl('contacts.php');
         $this->redirect($back);
     }
 }

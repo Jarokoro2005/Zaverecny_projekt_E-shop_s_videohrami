@@ -24,8 +24,8 @@
             <td><?= htmlspecialchars($m['topic']) ?></td>
             <td><?= !empty($m['seen']) ? 'Yes' : 'No' ?></td>
             <td>
-                <a href="<?= htmlspecialchars($adminUrl . '/contact_detail.php?id=' . $m['id']) ?>">View</a>
-                <form method="POST" action="<?= htmlspecialchars($adminUrl . '/contact_seen.php?id=' . $m['id']) ?>"
+                <a href="<?= htmlspecialchars($adminUrl . '/contacts.php?action=show&id=' . $m['id']) ?>">View</a>
+                <form method="POST" action="<?= htmlspecialchars($adminUrl . '/contacts.php?action=seen&id=' . $m['id']) ?>"
                     class="table-action-form">
                     <input type="hidden" name="seen" value="<?= !empty($m['seen']) ? '0' : '1' ?>">
                     <button type="submit" class="btn">
@@ -33,8 +33,8 @@
                     </button>
                 </form>
                 <?php if (($_SESSION['user_role'] ?? '') === 'admin'): ?>
-                    | <a href="<?= htmlspecialchars($adminUrl . '/contact_edit.php?id=' . $m['id']) ?>">Edit</a> |
-                    <a href="<?= htmlspecialchars($adminUrl . '/contact_delete.php?id=' . $m['id']) ?>">Delete</a>
+                    | <a href="<?= htmlspecialchars($adminUrl . '/contacts.php?action=edit&id=' . $m['id']) ?>">Edit</a> |
+                    <a href="<?= htmlspecialchars($adminUrl . '/contacts.php?action=delete&id=' . $m['id']) ?>">Delete</a>
                 <?php endif; ?>
             </td>
         </tr>
