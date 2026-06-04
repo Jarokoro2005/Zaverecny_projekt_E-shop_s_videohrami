@@ -27,7 +27,6 @@ require_once __DIR__ . '/../app/bootstrap.php';
 
       <div class="hero__cta">
         <a href="shop.php" class="btn btn-solid"><span>Browse Games</span></a>
-        <a href="shop.php?sort=discount" class="btn btn-magenta"><span>View Deals</span></a>
       </div>
 
       <div class="hero__stats">
@@ -64,99 +63,7 @@ require_once __DIR__ . '/../app/bootstrap.php';
   </div>
 </div>
 
-<!-- FEATURED GAMES -->
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Featured <span>Titles</span></h2>
-    <div class="section-line"></div>
 
-    <div class="featured-grid">
-      <!-- Game 1 -->
-      <a href="shop.php" class="game-card">
-        <div class="game-card__thumb">
-          <div class="game-card__thumb-placeholder" style="
-                  background: linear-gradient(
-                    135deg,
-                    rgba(255, 45, 120, 0.15) 0%,
-                    rgba(9, 11, 16, 1) 100%
-                  );
-                ">
-            NEON BLADE: ORIGINS
-          </div>
-          <div class="game-card__overlay"></div>
-          <div class="game-card__tags">
-            <span class="badge badge-cyan">NEW</span>
-            <span class="badge badge-magenta">HOT</span>
-          </div>
-        </div>
-        <div class="game-card__body">
-          <h3 class="game-card__title">Neon Blade: Origins</h3>
-          <span class="text-muted mono" style="font-size: 0.78rem">Action RPG</span>
-          <div class="game-card__meta">
-            <div class="game-card__price">
-              <span class="original">$49.99</span> $29.99
-            </div>
-            <span class="game-card__rating">★★★★★</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Game 2 -->
-      <a href="shop.php" class="game-card">
-        <div class="game-card__thumb">
-          <div class="game-card__thumb-placeholder" style="
-                  background: linear-gradient(
-                    135deg,
-                    rgba(0, 255, 231, 0.15) 0%,
-                    rgba(9, 11, 16, 1) 100%
-                  );
-                ">
-            STELLAR ODYSSEY 2
-          </div>
-          <div class="game-card__overlay"></div>
-          <div class="game-card__tags">
-            <span class="badge badge-yellow">SALE</span>
-          </div>
-        </div>
-        <div class="game-card__body">
-          <h3 class="game-card__title">Stellar Odyssey 2</h3>
-          <span class="text-muted mono" style="font-size: 0.78rem">Space Sim</span>
-          <div class="game-card__meta">
-            <div class="game-card__price">$19.99</div>
-            <span class="game-card__rating">★★★★☆</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Game 3 -->
-      <a href="shop.php" class="game-card">
-        <div class="game-card__thumb">
-          <div class="game-card__thumb-placeholder" style="
-                  background: linear-gradient(
-                    135deg,
-                    rgba(150, 80, 255, 0.15) 0%,
-                    rgba(9, 11, 16, 1) 100%
-                  );
-                ">
-            VOID PROTOCOL
-          </div>
-          <div class="game-card__overlay"></div>
-          <div class="game-card__tags">
-            <span class="badge badge-cyan">TOP RATED</span>
-          </div>
-        </div>
-        <div class="game-card__body">
-          <h3 class="game-card__title">Void Protocol</h3>
-          <span class="text-muted mono" style="font-size: 0.78rem">FPS / Thriller</span>
-          <div class="game-card__meta">
-            <div class="game-card__price">$44.99</div>
-            <span class="game-card__rating">★★★★★</span>
-          </div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
 
 <!-- CATEGORIES -->
 <section class="section" style="padding-top: 0">
@@ -165,18 +72,19 @@ require_once __DIR__ . '/../app/bootstrap.php';
     <div class="section-line"></div>
 
     <div class="categories-grid">
-      <a href="shop.php?genre=action" class="cat-card"><span class="cat-card__icon">⚔️</span><span
-          class="cat-card__name">Action</span></a>
-      <a href="shop.php?genre=rpg" class="cat-card"><span class="cat-card__icon">🧙</span><span
-          class="cat-card__name">RPG</span></a>
-      <a href="shop.php?genre=sci-fi" class="cat-card"><span class="cat-card__icon">🚀</span><span
-          class="cat-card__name">Sci-Fi</span></a>
-      <a href="shop.php?genre=puzzle" class="cat-card"><span class="cat-card__icon">🧩</span><span
-          class="cat-card__name">Puzzle</span></a>
-      <a href="shop.php?genre=racing" class="cat-card"><span class="cat-card__icon">🏎️</span><span
-          class="cat-card__name">Racing</span></a>
-      <a href="shop.php?genre=indie" class="cat-card"><span class="cat-card__icon">👾</span><span
-          class="cat-card__name">Indie</span></a>
+      <a href="shop.php?genre%5B%5D=Action+RPG" class="cat-card"><span class="cat-card__icon">⚔️</span><span
+          class="cat-card__name">Action RPG</span></a>
+      <a href="shop.php?genre%5B%5D=Adventure" class="cat-card"><span class="cat-card__icon">🧙</span><span
+          class="cat-card__name">Adventure</span></a>
+
+      <a href="shop.php?genre%5B%5D=FPS" class="cat-card"><span class="cat-card__icon">🔫</span><span
+          class="cat-card__name">FPS</span></a>
+      <a href="shop.php?genre%5B%5D=Metroidvania" class="cat-card"><span class="cat-card__icon">🧩</span><span
+          class="cat-card__name">Metroidvania</span></a>
+      <a href="shop.php?genre%5B%5D=Sports" class="cat-card"><span class="cat-card__icon">🏎️</span><span
+          class="cat-card__name">Sports</span></a>
+      <a href="shop.php?genre%5B%5D=Sandbox" class="cat-card"><span class="cat-card__icon">👾</span><span
+          class="cat-card__name">Sandbox</span></a>
     </div>
   </div>
 </section>

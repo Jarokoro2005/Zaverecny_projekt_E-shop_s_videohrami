@@ -6,6 +6,7 @@
 
 <ul>
     <li><a href="<?= htmlspecialchars($adminUrl . '/contacts.php') ?>">Contact Messages</a></li>
+    <li><a href="<?= htmlspecialchars($adminUrl . '/games.php') ?>">Games</a></li>
     <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin'): ?>
         <li><a href="<?= htmlspecialchars($adminUrl . '/add_user.php') ?>">Add User</a></li>
     <?php endif; ?>
@@ -13,3 +14,4 @@
 </ul>
 
 <?php include __DIR__ . '/../../parts/footer.php'; ?>
+

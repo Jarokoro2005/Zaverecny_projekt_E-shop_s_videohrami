@@ -62,6 +62,8 @@ label {
 input[type="text"],
 input[type="email"],
 input[type="password"],
+input[type="number"],
+input[type="date"],
 textarea,
 select {
   width: 100%;
@@ -99,7 +101,7 @@ input[type="checkbox"] {
   padding: 0.75rem 1.5rem;
   background: var(--magenta);
   color: var(--white);
-  border: none;
+  border: 1px solid transparent;
   border-radius: var(--radius);
   font-weight: 600;
   text-transform: uppercase;
@@ -119,11 +121,13 @@ input[type="checkbox"] {
 
 .btn--primary {
   background: var(--cyan);
+  color: var(--bg);
+  border-color: var(--cyan);
 }
 
 .btn--primary:hover {
-  
   background: var(--cyan-dim);
+  color: var(--bg);
   box-shadow: var(--shadow-cyan);
 }
 
@@ -170,12 +174,12 @@ td a:hover {
 }
 
 .table-action-form .btn:hover {
-  color: var(--bg);
+  color: var(--white);
   transform: none;
 }
 
 .table-action-form .btn:hover * {
-  color: var(--bg);
+  color: var(--white);
 }
 
 /* ── Messages ─────────────────────────────────────────────── */
@@ -251,4 +255,167 @@ td a:hover {
     width: 100%;
     margin-bottom: 0.5rem;
   }
+}
+
+/* Admin contrast overrides */
+body {
+  --admin-surface: #111827;
+  --admin-surface-2: #1f2937;
+  --admin-border: #374151;
+  --admin-text: #f3f4f6;
+  --admin-muted: #cbd5e1;
+  --admin-primary: #2563eb;
+  --admin-primary-hover: #1d4ed8;
+  --admin-secondary: #475569;
+  --admin-secondary-hover: #334155;
+  --admin-danger: #b91c1c;
+  --admin-danger-hover: #991b1b;
+  background-image: none;
+}
+
+.navbar {
+  background: #090b10;
+  border-bottom-color: var(--admin-border);
+}
+
+.navbar__logo {
+  color: var(--admin-text);
+  text-shadow: none;
+}
+
+.navbar__logo svg {
+  fill: var(--admin-text);
+  filter: none;
+}
+
+.navbar__links a {
+  color: var(--admin-muted);
+}
+
+.navbar__links a::after {
+  background: var(--admin-primary);
+}
+
+.navbar__links a:hover,
+.navbar__links a.active {
+  color: var(--admin-text);
+}
+
+table,
+form {
+  background: var(--admin-surface);
+  border: 1px solid var(--admin-border);
+  box-shadow: none;
+}
+
+th {
+  background: var(--admin-surface-2);
+  color: var(--admin-text);
+}
+
+td {
+  color: var(--admin-text);
+}
+
+th,
+td {
+  border-bottom-color: var(--admin-border);
+}
+
+tr:hover {
+  background: #182235;
+}
+
+label {
+  color: var(--admin-muted);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+  background: #0f172a;
+  border-color: var(--admin-border);
+  color: var(--admin-text);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--admin-primary);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
+}
+
+.btn {
+  background: var(--admin-secondary);
+  color: var(--admin-text);
+  border-color: var(--admin-secondary);
+  box-shadow: none;
+}
+
+.btn:hover {
+  background: var(--admin-secondary-hover);
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.btn--primary {
+  background: var(--admin-primary);
+  color: #ffffff;
+  border-color: var(--admin-primary);
+}
+
+.btn--primary:hover {
+  background: var(--admin-primary-hover);
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.btn--danger {
+  background: var(--admin-danger);
+  color: #ffffff;
+  border-color: var(--admin-danger);
+}
+
+.btn--danger:hover {
+  background: var(--admin-danger-hover);
+  color: #ffffff;
+  box-shadow: none;
+}
+
+td a {
+  color: #dbeafe;
+}
+
+td a:hover {
+  background: var(--admin-surface-2);
+  color: #ffffff;
+}
+
+.table-action-form .btn:hover,
+.table-action-form .btn:hover * {
+  color: #ffffff;
+}
+
+.alert--success,
+.form-feedback.success {
+  background: rgba(22, 101, 52, 0.25);
+  border-color: #16a34a;
+  color: #bbf7d0;
+}
+
+.alert--error,
+.form-feedback.error {
+  background: rgba(127, 29, 29, 0.3);
+  border-color: #dc2626;
+  color: #fecaca;
+}
+
+.alert--info {
+  background: rgba(113, 63, 18, 0.25);
+  border-color: #d97706;
+  color: #fde68a;
 }

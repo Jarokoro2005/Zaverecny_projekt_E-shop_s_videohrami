@@ -9,7 +9,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="<?= htmlspecialchars($publicUrl . '/assets/css/global.css') ?>">
-    <link rel="stylesheet" href="<?= htmlspecialchars($publicUrl . '/assets/css/admin.css?v=5') ?>">
+    <link rel="stylesheet" href="<?= htmlspecialchars($publicUrl . '/assets/css/admin.css?v=6') ?>">
 </head>
 
 <body>
@@ -30,6 +30,7 @@
                 <ul class="navbar__links">
                     <li><a href="<?= htmlspecialchars($adminUrl . '/index.php') ?>">Dashboard</a></li>
                     <li><a href="<?= htmlspecialchars($adminUrl . '/contacts.php') ?>">Messages</a></li>
+                    <li><a href="<?= htmlspecialchars($adminUrl . '/games.php') ?>">Games</a></li>
                     <?php if (isset($_SESSION["user_role"]) && $_SESSION["user_role"] === "admin"): ?>
                         <li><a href="<?= htmlspecialchars($adminUrl . '/add_user.php') ?>">Add User</a></li>
                     <?php endif; ?>
