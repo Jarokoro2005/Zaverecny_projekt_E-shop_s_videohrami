@@ -8,7 +8,7 @@
     </div>
 <?php endif; ?>
 
-<form method="POST" action="">
+<form method="POST" action="" enctype="multipart/form-data">
     <label>Title:
         <input type="text" name="title" value="<?= htmlspecialchars($game['title'] ?? '') ?>" required>
     </label>
@@ -34,12 +34,20 @@
     </label>
 
     <label>Image title:
-        <input type="text" name="image_title" value="<?= htmlspecialchars($game['image_title'] ?? '') ?>" required>
+        <input type="text" name="image_title" value="<?= htmlspecialchars($game['image_title'] ?? '') ?>">
     </label>
 
     <label>Image URL:
-        <input type="text" name="image_url" value="<?= htmlspecialchars($game['image_url'] ?? '') ?>" required>
+        <input type="text" name="image_url" value="<?= htmlspecialchars($game['image_url'] ?? '') ?>">
     </label>
+
+    <label>Upload image:
+        <input type="file" name="image_file" accept="image/jpeg,image/png,image/webp,image/gif">
+    </label>
+
+    <?php if (!empty($game['image_url'])): ?>
+        <p><strong>Current image:</strong> <?= htmlspecialchars($game['image_url']) ?></p>
+    <?php endif; ?>
 
     <label>Genre:
         <input type="text" name="genre" value="<?= htmlspecialchars($game['genre'] ?? '') ?>" required>

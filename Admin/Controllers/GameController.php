@@ -41,7 +41,12 @@ class GameController extends BaseController
         $errors = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $errors = $this->validateGameData($game);
+            $uploadError = $this->handleImageUpload($game);
+            if ($uploadError !== null) {
+                $errors[] = $uploadError;
+            }
+
+            $errors = array_merge($errors, $this->validateGameData($game));
 
             if (empty($errors)) {
                 try {
@@ -75,7 +80,12 @@ class GameController extends BaseController
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $game = array_merge($game, $this->buildGameData($input));
-            $errors = $this->validateGameData($game);
+            $uploadError = $this->handleImageUpload($game);
+            if ($uploadError !== null) {
+                $errors[] = $uploadError;
+            }
+
+            $errors = array_merge($errors, $this->validateGameData($game));
 
             if (empty($errors)) {
                 try {
@@ -186,5 +196,74 @@ class GameController extends BaseController
         }
 
         return $errors;
+    }
+
+    private function handleImageUpload(array &$game): ?string
+    {
+        if (empty($_FILES['image_file']) || !is_array($_FILES['image_file'])) {
+            return null;
+        }
+
+        $file = $_FILES['image_file'];
+
+        if (($file['error'] ?? UPLOAD_ERR_NO_FILE) === UPLOAD_ERR_NO_FILE) {
+            return null;
+        }
+
+        if (($file['error'] ?? UPLOAD_ERR_OK) !== UPLOAD_ERR_OK) {
+            return 'Image upload failed.';
+        }
+
+        if (($file['size'] ?? 0) > 5 * 1024 * 1024) {
+            return 'Image must be smaller than 5 MB.';
+        }
+
+        $tmpName = $file['tmp_name'] ?? '';
+        if ($tmpName === '' || !is_uploaded_file($tmpName)) {
+            return 'Invalid uploaded image.';
+        }
+
+        $imageInfo = getimagesize($tmpName);
+        if ($imageInfo === false) {
+            return 'Uploaded file must be an image.';
+        }
+
+        $allowedMimeTypes = [
+            'image/jpeg' => 'jpg',
+            'image/png' => 'png',
+            'image/webp' => 'webp',
+            'image/gif' => 'gif',
+        ];
+
+        $mimeType = $imageInfo['mime'] ?? '';
+        if (!isset($allowedMimeTypes[$mimeType])) {
+            return 'Image must be JPG, PNG, WEBP, or GIF.';
+        }
+
+        $baseName = $game['slug'] !== '' ? $game['slug'] : strtolower((string) preg_replace('/[^a-z0-9]+/i', '-', $game['title']));
+        $baseName = trim((string) preg_replace('/[^a-z0-9-]+/', '', $baseName), '-');
+        if ($baseName === '') {
+            $baseName = 'game-image';
+        }
+
+        $fileName = $baseName . '-' . time() . '.' . $allowedMimeTypes[$mimeType];
+        $uploadDir = __DIR__ . '/../../public/assets/images/games';
+        $targetPath = $uploadDir . '/' . $fileName;
+
+        if (!is_dir($uploadDir)) {
+            return 'Image upload folder does not exist.';
+        }
+
+        if (!move_uploaded_file($tmpName, $targetPath)) {
+            return 'Could not save uploaded image.';
+        }
+
+        $game['image_url'] = 'assets/images/games/' . $fileName;
+
+        if ($game['image_title'] === '') {
+            $game['image_title'] = $game['title'] . ' cover art';
+        }
+
+        return null;
     }
 }
