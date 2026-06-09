@@ -58,7 +58,10 @@
       <span class="ticker__dot">◆</span></span>
   </div>
 </div>
+<br>
 
+<br>
+<br>
 
 
 <!-- CATEGORIES -->
@@ -126,3 +129,4 @@
 </body>
 
 </html>
+

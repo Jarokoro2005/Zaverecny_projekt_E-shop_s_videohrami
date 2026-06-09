@@ -29,10 +29,10 @@
             </ul>
 
             <div class="navbar__actions">
-                <button class="navbar__cart" aria-label="Shopping cart">
+                <a class="navbar__cart" href="cart.php" aria-label="Shopping cart">
                     🛒 <span>Cart</span>
-                    <span class="navbar__cart-count">3</span>
-                </button>
+                    <span class="navbar__cart-count"><?= CartController::countItems() ?></span>
+                </a>
                 <button class="navbar__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
                     <span></span><span></span><span></span>
                 </button>

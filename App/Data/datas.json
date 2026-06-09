@@ -1,20 +1,24 @@
 {
   "meta": {
     "index": {
-      "title": "GameVault - Domov",
+      "title": "GameVault - Home",
       "description": "GameVault - Thousands of digital games at the best prices. Instant delivery."
     },
     "shop": {
-      "title": "GameVault - Obchod",
+      "title": "GameVault - Shop",
       "description": "Browse thousands of games at GameVault. Filter by genre, price, and more."
     },
     "game": {
-      "title": "GameVault - Detail hry",
+      "title": "GameVault - Game",
       "description": "Game detail page with price, rating, description, and platform information."
     },
     "contact": {
-      "title": "GameVault - Kontakt",
+      "title": "GameVault - Contact",
       "description": "Get in touch with GameVault support. We help with orders, keys, and technical issues."
+    },
+    "cart": {
+      "title": "GameVault - Cart",
+      "description": "Shopping cart with selected games."
     }
   },
   "sites": {
@@ -22,6 +26,7 @@
     "contact": ["assets/css/global.css", "assets/css/contact.css"],
     "shop": ["assets/css/global.css", "assets/css/shop.css"],
     "game": ["assets/css/global.css", "assets/css/game.css"],
+    "cart": ["assets/css/global.css", "assets/css/shop.css"],
     "thankyou": ["assets/css/global.css", "assets/css/thankyou.css"]
   },
   "menu": {

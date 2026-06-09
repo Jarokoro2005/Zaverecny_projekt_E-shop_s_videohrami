@@ -61,7 +61,12 @@
                     </div>
 
                     <div class="game-cta">
-                        <button class="btn btn-magenta" type="button">Add to cart</button>
+                        <form method="post" action="cart_action.php">
+                            <input type="hidden" name="action" value="add">
+                            <input type="hidden" name="game_id" value="<?= (int) $game['id'] ?>">
+                            <input type="hidden" name="redirect" value="game.php?slug=<?= Helpers::e($game['slug']) ?>">
+                            <button class="btn btn-magenta" type="submit">Add to cart</button>
+                        </form>
                         <a class="game-wishlist" href="shop.php">Back to shop</a>
                     </div>
                 </div>
