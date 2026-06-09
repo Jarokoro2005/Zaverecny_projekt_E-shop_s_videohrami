@@ -1,6 +1,6 @@
 <?php
 
-class GamePage
+class GameDetailController
 {
     private GameRepository $games;
     private ?array $game;

@@ -1,6 +1,6 @@
 <?php
 
-class ShopPage
+class ShopController
 {
     private GameRepository $games;
     private array $filters;
