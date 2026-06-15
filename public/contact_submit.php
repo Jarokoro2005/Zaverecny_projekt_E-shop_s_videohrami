@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../app/bootstrap.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    $_SESSION['contact_errors'] = ['Formular bol otvoreny nespravnym sposobom.'];
+    $_SESSION['contact_errors'] = ['Form was opened incorrectly.'];
     header('Location: contact.php');
     exit;
 }
